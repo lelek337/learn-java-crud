@@ -1,13 +1,14 @@
-package com.example.bysel.controllers;
+package com.example.buysell.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.bysel.models.Product;
-import com.example.bysel.services.ProductService;
+import com.example.buysell.models.Product;
+import com.example.buysell.services.ProductService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,15 +18,14 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/")
-    public String products(Model model) {
-        model.addAttribute("products", productService.listProducts());
+    public String products(@RequestParam(name = "title", required = false) String title, Model model) {
+        model.addAttribute("products", productService.listProducts(title));
         return "products";
     }
 
     @GetMapping("/product/{id}")
     public String productInfo(@PathVariable Long id, Model model) {
         model.addAttribute("product", productService.getProductById(id));
-
         return "product-info";
     }
 

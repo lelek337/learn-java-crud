@@ -5,7 +5,7 @@
     <title>BUSEL</title>
 </head>
 <body>
-    <h1> BUySEL</h1><hr>
+    <h1> BUYSEL</h1><hr>
     <h3>Product Details<h3>
     <b>Title product: </b>${product.title}<br>
     <b>Description product: </b>${product.description}<br>
