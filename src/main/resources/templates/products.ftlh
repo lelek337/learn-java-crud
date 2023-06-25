@@ -7,6 +7,10 @@
 <body>
     <h1> BUYSEL</h1><hr>
     <h3> Products from Belarus<h3>
+    <form action="/" method="get">
+        Search by ad name: <input type="text" name="title"><br>
+        <input type="submit" value="Search"/>
+    </form>
     <#list products as product>
         <div>
             <p><b>${product.title}<b> ${product.price} Br | <a href="/product/${product.id}">more...</a></p>
@@ -16,12 +20,16 @@
     </#list>
     <hr>
     <h3>Create a new directory</h3>
-    <form action="/product/create" method="post">
+    <form action="/product/create" method="post" enctype="multipart/form-data">
         Title: <input type="text" name="title"><br><br> 
         Description: <input type="text" name="description"><br><br> 
         Price: <input type="number" name="price"><br><br> 
         City: <input type="text" name="city"><br><br> 
         Name: <input type="text" name="author"><br><br>
+        first photo: <input type="file" name="file1"><br><br>
+        second photo: <input type="file" name="file2"><br><br>
+        third photo: <input type="file" name="file3"><br><br>
+
         <input type="submit" value="Add product"> 
     </form>
 </body>

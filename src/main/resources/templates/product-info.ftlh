@@ -7,11 +7,15 @@
 <body>
     <h1> BUYSEL</h1><hr>
     <h3>Product Details<h3>
+    <#list images as img>
+        <img src="/images/${img.id}" height="60"/><br><br>
+    </#list>
     <b>Title product: </b>${product.title}<br>
     <b>Description product: </b>${product.description}<br>
     <b>Price: </b>${product.price}<br>
     <b>City: </b>${product.city}<br>
     <b>Name: </b>${product.author}<br>
+    
     <hr>
     <form action="/product/delete/${product.id}" method="post">
        
